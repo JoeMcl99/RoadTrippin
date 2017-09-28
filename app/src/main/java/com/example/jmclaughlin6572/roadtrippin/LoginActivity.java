@@ -28,6 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -70,6 +71,24 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+
+        //Populating Genre Spinner
+        List<String> genreArray =  new ArrayList<String>();
+        genreArray.add("Rock");
+        genreArray.add("Hip-hop");
+        genreArray.add("Country");
+        genreArray.add("Pop Music");
+        genreArray.add("Classics");
+        genreArray.add("Blues");
+        genreArray.add("Opera");
+        genreArray.add("EDM");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, genreArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        Spinner spinnerItems = (Spinner) findViewById(R.id.genreSpinner);
+        spinnerItems.setAdapter(adapter);
+
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -336,9 +355,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (success) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
-                intent.putExtra("previousActivity","From_Login");
+                intent.putExtra("previousPage", "From_Login");
                 startActivity(intent);
-                finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
