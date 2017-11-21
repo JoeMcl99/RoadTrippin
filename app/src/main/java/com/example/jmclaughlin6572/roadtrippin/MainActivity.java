@@ -31,4 +31,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RadioMap.class);
         startActivity(intent);
     }
+    public void goToSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <CheckBoxPreference
-        android:key="pref_sync"
+        android:key="pref_notifications"
         android:title="Notifications"
         android:summary="Allow RoadTrippin to give notifications when new radion stations are nearby"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
     <EditTextPreference
-        android:key="pref_sync"
+        android:key="pref_city"
         android:title="City"
         android:summary="Set home city so we won't tell you stations nearby when you are home" />
 
