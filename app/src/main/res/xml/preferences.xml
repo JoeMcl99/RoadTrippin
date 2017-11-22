@@ -9,6 +9,17 @@
         android:key="pref_city"
         android:title="City"
         android:summary="Set home city so we won't tell you stations nearby when you are home" />
+    <EditTextPreference
+        android:key="pref_province"
+        android:title="Province"
+        android:summary="Set Province of City" />
+    <ListPreference
+        android:key="pref_genre"
+        android:title="Genre"
+        android:summary="Set your favourite Genre so we can show you stations that match"
+        android:entries="@array/genres"
+        android:entryValues="@array/genres"
+        />
 
 
 </PreferenceScreen>
