@@ -36,6 +36,7 @@ public class SetSettings extends AppCompatActivity {
     }
 
     public void saveSettings(View view) {
+
         Intent intent = new Intent(SetSettings.this, MainActivity.class);
 
         intent.putExtra("previousPage", "From_Login");
