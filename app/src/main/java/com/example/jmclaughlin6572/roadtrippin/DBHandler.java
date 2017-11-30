@@ -1,6 +1,8 @@
 package com.example.jmclaughlin6572.roadtrippin;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -40,12 +42,18 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CITY + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_ADDRESS + " TEXT" + ")";
-        db.execSQL(CREATE_CONTACTS_TABLE);
-    }
+//        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CITY + "("
+//                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+//                + KEY_ADDRESS + " TEXT" + ")";
+//        db.execSQL(CREATE_CONTACTS_TABLE);
 
+        String CREATE_STATION_TABLE = "CREATE TABLE " + TABLE_STATION + "("
+                + STATION_ID + " INTEGER PRIMARY KEY," + STATION_NAME + " TEXT,"
+                + STATION_FREQUENCY + " TEXT,"
+                + STATION_FORMAT + " TEXT" + ")";
+
+        db.execSQL(CREATE_STATION_TABLE);
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CITY);
@@ -108,6 +116,19 @@ public class DBHandler extends SQLiteOpenHelper {
                 cursor.getString(1), cursor.getString(2), cursor.getString(3));
 
         return station;
+    }
+    public void addStation(Station station) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(STATION_NAME, station.get_name());
+        values.put(STATION_FORMAT, station.get_format());
+        values.put(STATION_FREQUENCY, station.get_frequency());
+
+
+        // Inserting Row
+        db.insert(TABLE_STATION, null, values);
+        db.close(); // Closing database connection
     }
 
     public List<Station> getAllStations() {

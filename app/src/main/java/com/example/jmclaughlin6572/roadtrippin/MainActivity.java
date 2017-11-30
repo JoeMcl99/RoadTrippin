@@ -36,4 +36,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+    public void goToStationList(View view) {
+        Intent intent = new Intent(this, StationList.class);
+        startActivity(intent);
+    }
 }
