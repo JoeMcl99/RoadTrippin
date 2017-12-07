@@ -34,6 +34,13 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String STATION_FREQUENCY = "frequency";
     private static final String STATION_FORMAT = "format";
 
+    //GENRE TABLE NAMES
+    private static final String TABLE_GENRE = "genre";
+
+    private static final String GENRE_ID = "id";
+    private static final String GENRE_NAME = "name";
+    private static final String GENRE_DESCRIPTION = "description";
+
 
     public DBHandler(Context context){
         super (context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -157,4 +164,30 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     }
+    public List<Genre> getAllGenres() {
+        List<Genre> genreList = new ArrayList<Genre>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_GENRE;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Genre genre = new Genre();
+                genre.setId(Integer.parseInt(cursor.getString(0)));
+                genre.setName(cursor.getString(1));
+                genre.setDescription(cursor.getString(2));
+                // Adding contact to list
+                genreList.add(genre);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return genreList;
+
+
+    }
+
 }
