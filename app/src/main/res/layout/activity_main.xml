@@ -11,24 +11,6 @@
     <LinearLayout
         android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <Button
-            android:id="@+id/btnStationList"
-            android:layout_width="368dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="goToStationList"
-            android:text="Station List"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="373dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -83,6 +65,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.982" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <Button
+            android:id="@+id/btnStationList"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:onClick="goToStationList"
+            android:text="Station List"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="373dp" />
+
+        <Button
+            android:id="@+id/btnRequirmentChecker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="goToRequirementChecker"
+            android:text="Share" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

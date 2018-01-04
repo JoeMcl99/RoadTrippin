@@ -54,7 +54,12 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".StationList"></activity>
+        <activity android:name=".StationList" />
+        <activity
+            android:name=".RequirementChecker"
+            android:label="@string/title_activity_requirement_checker"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
